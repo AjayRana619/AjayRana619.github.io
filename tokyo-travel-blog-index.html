@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5 Days in Tokyo — The Ultimate 2026 Travel Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1410;
+    --cream: #f7f3ed;
+    --warm: #e8ddd0;
+    --red: #c0392b;
+    --gold: #b8924a;
+    --muted: #7a6f65;
+    --border: rgba(26,20,16,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--ink);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 6vw 8vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 40%, rgba(192,57,43,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 80% at 20% 70%, rgba(184,146,74,0.12) 0%, transparent 60%);
+  }
+
+  .hero-jp {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(3rem, 12vw, 9rem);
+    font-weight: 300;
+    color: rgba(255,255,255,0.06);
+    position: absolute;
+    top: 8vh;
+    right: 4vw;
+    line-height: 1;
+    writing-mode: vertical-rl;
+    letter-spacing: 0.1em;
+    animation: fadeUp 1.4s ease both 0.2s;
+  }
+
+  .hero-tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease both 0.3s;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    font-weight: 300;
+    color: #fff;
+    line-height: 1.05;
+    opacity: 0;
+    animation: fadeUp 0.9s ease both 0.5s;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 2.5rem;
+    margin-top: 2.5rem;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    opacity: 0;
+    animation: fadeUp 0.9s ease both 0.8s;
+  }
+
+  .hero-meta span { display: flex; align-items: center; gap: 0.4rem; }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 4vh;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0;
+    animation: fadeUp 0.9s ease both 1.2s;
+    color: rgba(255,255,255,0.3);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  /* NAV */
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(247,243,237,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 6vw;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .sticky-nav::-webkit-scrollbar { display: none; }
+
+  .nav-item {
+    padding: 1rem 1.2rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+
+  .nav-item:hover { color: var(--ink); border-bottom-color: var(--gold); }
+
+  /* INTRO */
+  .intro-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    min-height: 70vh;
+  }
+
+  .intro-text {
+    padding: 8vh 6vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .section-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .section-label::after {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 1px;
+    background: var(--red);
+  }
+
+  .intro-text h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 3.2rem);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .intro-text p {
+    color: var(--muted);
+    font-size: 0.9rem;
+    max-width: 42ch;
+    margin-bottom: 1rem;
+  }
+
+  .intro-visual {
+    background: var(--ink);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .intro-visual-inner {
+    text-align: center;
+    color: rgba(255,255,255,0.8);
+    padding: 3rem;
+  }
+
+  .jp-char {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 6rem;
+    font-weight: 300;
+    opacity: 0.15;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* BUDGET SUMMARY */
+  .budget-strip {
+    background: var(--ink);
+    padding: 6vh 6vw;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+  }
+
+  .budget-item {
+    background: rgba(255,255,255,0.04);
+    padding: 2.5rem 2rem;
+    border-right: 1px solid rgba(255,255,255,0.07);
+    transition: background 0.3s;
+  }
+
+  .budget-item:hover { background: rgba(255,255,255,0.07); }
+  .budget-item:last-child { border-right: none; }
+
+  .budget-item .label {
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+  }
+
+  .budget-item .amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+
+  .budget-item .note {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.4);
+  }
+
+  /* DAYS */
+  .days-container {
+    padding: 0 6vw;
+  }
+
+  .day-block {
+    border-top: 1px solid var(--border);
+    padding: 7vh 0;
+  }
+
+  .day-header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: start;
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .day-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem;
+    font-weight: 300;
+    color: rgba(26,20,16,0.08);
+    line-height: 1;
+    user-select: none;
+    min-width: 4rem;
+  }
+
+  .day-title-group h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 400;
+    line-height: 1.1;
+  }
+
+  .day-title-group .sub {
+    color: var(--muted);
+    font-size: 0.8rem;
+    margin-top: 0.4rem;
+    letter-spacing: 0.05em;
+  }
+
+  .day-cost-badge {
+    background: var(--ink);
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+  }
+
+  /* ITINERARY TABLE */
+  .itinerary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .stop-card {
+    border-left: 2px solid var(--warm);
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  .stop-card::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 6px;
+    width: 8px;
+    height: 8px;
+    background: var(--gold);
+    border-radius: 50%;
+  }
+
+  .stop-time {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+  }
+
+  .stop-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+
+  .stop-desc {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .stop-price {
+    display: inline-block;
+    margin-top: 0.6rem;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--red);
+    background: rgba(192,57,43,0.08);
+    padding: 0.2rem 0.6rem;
+    border-radius: 2px;
+  }
+
+  /* COST BREAKDOWN TABLE */
+  .cost-table {
+    background: var(--warm);
+    padding: 2.5rem;
+    margin-top: 2rem;
+  }
+
+  .cost-table h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .cost-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(26,20,16,0.08);
+    font-size: 0.82rem;
+  }
+
+  .cost-row:last-child { border-bottom: none; }
+
+  .cost-row .item { color: var(--ink); }
+
+  .cost-row .price {
+    font-weight: 500;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .cost-row.total {
+    margin-top: 0.5rem;
+    padding-top: 1rem;
+    border-top: 2px solid var(--ink);
+    border-bottom: none;
+    font-weight: 500;
+  }
+
+  /* TIPS */
+  .tips-section {
+    background: var(--ink);
+    padding: 8vh 6vw;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 5vw;
+    align-items: start;
+  }
+
+  .tips-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 300;
+    color: #fff;
+    line-height: 1.2;
+    position: sticky;
+    top: 80px;
+  }
+
+  .tips-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .tip-card {
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 1.8rem;
+    transition: border-color 0.3s, background 0.3s;
+  }
+
+  .tip-card:hover {
+    border-color: var(--gold);
+    background: rgba(184,146,74,0.05);
+  }
+
+  .tip-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .tip-card h4 {
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.03em;
+  }
+
+  .tip-card p {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.78rem;
+    line-height: 1.6;
+  }
+
+  /* BLOG PLATFORMS */
+  .platforms-section {
+    padding: 8vh 6vw;
+    border-top: 1px solid var(--border);
+  }
+
+  .platforms-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+  }
+
+  .platforms-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 400;
+  }
+
+  .platforms-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: var(--border);
+  }
+
+  .platform-card {
+    background: var(--cream);
+    padding: 2.5rem 2rem;
+    transition: background 0.3s;
+  }
+
+  .platform-card:hover { background: var(--warm); }
+
+  .platform-card .p-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+
+  .platform-card .p-type {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .platform-card p {
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.65;
+    margin-bottom: 1rem;
+  }
+
+  .p-pros { list-style: none; }
+
+  .p-pros li {
+    font-size: 0.75rem;
+    color: var(--muted);
+    padding: 0.2rem 0;
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .p-pros li::before {
+    content: '✓';
+    color: var(--gold);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .p-badge {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 1px solid var(--border);
+    color: var(--muted);
+  }
+
+  .p-badge.free { border-color: var(--gold); color: var(--gold); }
+
+  /* TOTAL SUMMARY */
+  .total-summary {
+    background: var(--red);
+    padding: 6vh 6vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .total-summary h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 4rem);
+    font-weight: 300;
+    color: #fff;
+    line-height: 1.1;
+  }
+
+  .total-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .total-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.8);
+    font-size: 0.85rem;
+  }
+
+  .total-line:last-child {
+    border-bottom: none;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding-top: 1.2rem;
+    margin-top: 0.2rem;
+    border-top: 2px solid rgba(255,255,255,0.4);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    padding: 5vh 6vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer .f-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.7);
+  }
+
+  footer p {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .intro-section { grid-template-columns: 1fr; }
+    .intro-visual { min-height: 40vw; }
+    .budget-strip { grid-template-columns: 1fr 1fr; }
+    .itinerary { grid-template-columns: 1fr; gap: 2rem; }
+    .day-header { grid-template-columns: auto 1fr; }
+    .day-cost-badge { grid-column: 2; }
+    .tips-section { grid-template-columns: 1fr; }
+    .tips-section h2 { position: static; }
+    .tips-grid { grid-template-columns: 1fr; }
+    .platforms-grid { grid-template-columns: 1fr; }
+    .total-summary { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+  }
+
+  /* DECORATIVE DIVIDER */
+  .torii-divider {
+    text-align: center;
+    padding: 2rem;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.4rem;
+    color: var(--gold);
+    letter-spacing: 1rem;
+    opacity: 0.6;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-jp">東京</div>
+  <div class="hero-tag">5-Day Itinerary · 2026 Travel Guide · Mid-Range Budget</div>
+  <h1>Lost in<br><em>Tokyo</em></h1>
+  <div class="hero-meta">
+    <span>📅 5 Days</span>
+    <span>🗼 Shibuya · Shinjuku · Asakusa</span>
+    <span>🗻 Mt. Fuji Day Trip</span>
+    <span>🏰 DisneySea</span>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    Scroll
+  </div>
+</section>
+
+<!-- NAV -->
+<nav class="sticky-nav">
+  <a class="nav-item" href="#intro">Overview</a>
+  <a class="nav-item" href="#day1">Day 1 · Shibuya</a>
+  <a class="nav-item" href="#day2">Day 2 · Shinjuku</a>
+  <a class="nav-item" href="#day3">Day 3 · Asakusa</a>
+  <a class="nav-item" href="#day4">Day 4 · Mt. Fuji</a>
+  <a class="nav-item" href="#day5">Day 5 · DisneySea</a>
+  <a class="nav-item" href="#tips">Tips</a>
+  <a class="nav-item" href="#blog">Start Blogging</a>
+</nav>
+
+<!-- INTRO -->
+<section id="intro" class="intro-section">
+  <div class="intro-text">
+    <div class="section-label">Why Tokyo in 2026</div>
+    <h2>The World's Most<br>Layered City</h2>
+    <p>Tokyo in 2026 remains one of the most extraordinary destinations on Earth — ancient temples beside skyscraper forests, the world's best ramen for $8, and a subway network so reliable you could set your watch to it.</p>
+    <p>This guide is built around a realistic mid-range budget: comfortable business hotels, proper sit-down meals, and no skimping on the experiences that make Tokyo unforgettable. All prices are in USD with yen equivalents, using the approximate 2026 rate of <strong>¥148–152 per $1 USD</strong>.</p>
+  </div>
+  <div class="intro-visual">
+    <div class="jp-char">旅</div>
+    <div class="intro-visual-inner" style="position:relative;z-index:1;">
+      <div style="font-family:'Noto Serif JP',serif;font-size:1.2rem;color:rgba(255,255,255,0.6);letter-spacing:0.2em;">旅行の心得</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:rgba(255,255,255,0.3);margin-top:0.5rem;font-style:italic;">The Spirit of Travel</div>
+    </div>
+  </div>
+</section>
+
+<!-- BUDGET OVERVIEW -->
+<div class="budget-strip">
+  <div class="budget-item">
+    <div class="label">Hotel (4 nights)</div>
+    <div class="amount">$560</div>
+    <div class="note">~$140/night · business hotel</div>
+  </div>
+  <div class="budget-item">
+    <div class="label">Transport</div>
+    <div class="amount">$120</div>
+    <div class="note">metro + Mt. Fuji bus</div>
+  </div>
+  <div class="budget-item">
+    <div class="label">Food (5 days)</div>
+    <div class="amount">$250</div>
+    <div class="note">~$50/day · mix of budget + nice</div>
+  </div>
+  <div class="budget-item">
+    <div class="label">Activities</div>
+    <div class="amount">$180</div>
+    <div class="note">DisneySea + admissions</div>
+  </div>
+</div>
+
+<!-- ===================== DAYS ===================== -->
+<div class="days-container">
+
+  <!-- DAY 1 -->
+  <div id="day1" class="day-block">
+    <div class="day-header">
+      <div class="day-number">01</div>
+      <div class="day-title-group">
+        <h3>Shibuya & Harajuku</h3>
+        <div class="sub">Tokyo's beating, neon-drenched heart — the crossing, the fashion, the chaos</div>
+      </div>
+      <div class="day-cost-badge">Est. $80–$100</div>
+    </div>
+
+    <div class="itinerary">
+      <div class="stop-card">
+        <div class="stop-time">Morning · 9:00 AM</div>
+        <div class="stop-name">Shibuya Crossing</div>
+        <div class="stop-desc">The world's busiest scramble crossing — best viewed from the Mag's Park rooftop or Starbucks Reserve Roastery. Watch the morning rush from above before descending into the flow.</div>
+        <span class="stop-price">FREE (viewing) · ¥700 Starbucks coffee</span>
+      </div>
+      <div class="stop-card">
+        <div class="stop-time">Mid-Morning · 10:30 AM</div>
+        <div class="stop-name">Meiji Shrine</div>
+        <div class="stop-desc">A serene forested sanctuary 10 minutes from Harajuku Station. The contrast with Shibuya's energy is startling. Arrive early for a quiet morning among the towering torii.</div>
+        <span class="stop-price">FREE entry</span>
+      </div>
+      <div class="stop-card">
+        <div class="stop-time">Noon · 12:30 PM</div>
+        <div class="stop-name">Takeshita Street, Harajuku</div>
+        <div class="stop-desc">Crepe shops, vintage fashion boutiques, and the full spectrum of Tokyo street style. Budget ¥600–¥800 for a legendary Harajuku crepe while people-watching.</div>
+        <span class="stop-price">Crepe: ~$5 · Shopping: variable</span>
+      </div>
+      <div class="stop-card">
+        <div class="stop-time">Afternoon · 3:00 PM</div>
+        <div class="stop-name">Shibuya Sky Observatory</div>
+        <div class="stop-desc">The rooftop observation deck on Scramble Square offers the most dramatic 360° panorama in Tokyo, including a clear view down into the crossing. Book online to skip lines and save ¥200.</div>
+        <span class="stop-price">¥2,000 (~$13) · Book in advance</span>
+      </div>
+      <div class="stop-card">
+        <div class="stop-time">Evening · 7:00 PM</div>
+        <div class="stop-name">Dinner in Dogenzaka</div>
+        <div class="stop-desc">Shibuya's backstreet restaurant alleys offer everything from yakitori under the train tracks to ramen counters and affordable izakayas. Budget ¥1,500–¥2,500 for a full meal with a beer.</div>
+        <span class="stop-price">¥1,500–¥2,500 (~$10–$17)</span>
+      </div>
+      <div class="stop-card">
+        <div class="stop-time">Night · 9:00 PM</div>
+        <div class="stop-name">Konbini Night Cap</div>
+        <div class="stop-desc">End the evening the Tokyo way: a 7-Eleven or Lawson convenience store run. Japanese convenience store food — onigiri, sandwiches, hot oden — is genuinely excellent. Stock up for tomorrow's breakfast too.</div>
+        <span class="stop-price">¥500–¥900 (~$3–$6)</span>
+      </div>
+    </div>
+
+    <div class="cost-table">
+      <h4>💴 Day 1 Cost Breakdown</h4>
+      <div class="cost-row"><span class="item">Metro (Suica card, multiple rides)</span><span class="price">~$10</span></div>
+      <div class="cost-row"><span class="item">Shibuya Sky admission</span><span class="price">$13</span></div>
+      <div class="cost-row"><span class="item">Lunch (Harajuku crepe + street food)</span><span class="price">~$12</span></div>
+      <div class="cost-row"><span class="item">Dinner (izakaya)</span><span class="price">~$15</span></div>
+      <div class="cost-row"><span class="item">Snacks / konbini</span><span class="price">~$5</span></div>
+      <div class="cost-row total"><span class="item">Day 1 Total</span><span class="price">~$55</span></div>
+    </div>
+  </div>
+
+  <div class="torii-divider">⛩ ⛩ ⛩</div>
+
+  <!-- DAY 2 -->
+  <div id="day2" class="day-block">
+    <div class="day-header">
+      <div class="day-number">02</div>
+      <div class="day-title-group">
+        <h3>Shinjuku</h3>
+        <div class="sub">Skyscrapers by day, neon-soaked alleys by night — the city in full contrast</div>
+      </div>
+      <div class="day-cost-badge">Est. $85–$110</div>
+    </div>
+
+    <div class="itinerary">
+      <div class="stop-card">
+        <div class="stop-time">Morning · 9:30 AM</div>
+        <div class="stop-name">Shinjuku Gyoen Garden</div>
+        <div class="stop-desc">One of Japan's finest national gardens, covering 58 hectares with Japanese, French, and English garden styles. A peaceful morning retreat before the city's energy picks up.</div>
+        <span class="stop-price">¥500 (~$3)</span>
+      </div>
+      <div class="stop-card">
+        <div class="stop-time">Late Morning · 11:30 AM</div>
+        <div class="stop-name">Tokyo Metropolitan Government Building</div>
+        <div class="stop-desc">Free observation deck on the 45th floor — arguably the best free panoramic view in Tokyo. On clear days you can see as far as Mt. Fuji. Come back at sunset for the full experience.</div>
+        <span class="stop-price">FREE · Open until 10:30 PM</span>
+      </div>
+      <div class="stop-card">
+        <div class="stop-time">Afternoon · 1:00 PM</div>
+        <div class="stop-name">Omoide Yokocho (Memory Lane)</div>
+        <div class="stop-desc">Narrow alleys beneath the Shinkansen tracks lined with tiny yakitori stalls. Smoke, sizzle, and salarymen. Lunch here is one of Tokyo's great sensory experiences — even better at night.</div>
+        <span class="stop-price">Lunch: ¥1,200–¥2,000 (~$8–$14)</span>
+      </div>
+      <div class="stop-card">
+        <div class="stop-time">Afternoon · 3:00 PM</div>
+        <div class="stop-name">Shinjuku Golden Gai</div>
+        <div class="stop-desc">A grid of over 200 tiny bars, each seating 5–8 people, each with its own personality. Browse the alleyways in the afternoon before the crowds hit. Pick your bar for the evening now.</div>
+        <span class="stop-price">Bar drinks: ¥600–¥1,200/each (~$4–$8)</span>
+      </div>
+      <div class="stop-card">
+        <div class="stop-time">Evening · 6:30 PM</div>
+        <div class="stop-name">Kabukicho & Don Quijote</div>
+        <div class="stop-desc">Shinjuku's entertainment district comes alive at night. Browse the surreal Don Quijote discount chain for unique souvenirs, then grab ramen or a kaisendon rice bowl at one of the many nearby restaurants.</div>
+        <span class="stop-price">Dinner: ¥1,500–¥2,500 (~$10–$17)</span>
+      </div>
+      <div class="stop-card">
+        <div class="stop-time">Night · 9:00 PM</div>
+        <div class="stop-name">Golden Gai Nightcap</div>
+        <div class="stop-desc">Return to that bar you scouted earlier. Most have a seating cover charge (¥500–¥1,000) but the experience of squeezing into a 6-seat bar with a local bartender is priceless.</div>
+        <span class="stop-price">¥1,500–¥2,500 (~$10–$17) total</span>
+      </div>
+    </div>
+
+    <div class="cost-table">
+      <h4>💴 Day 2 Cost Breakdown</h4>
+      <div class="cost-row"><span class="item">Metro (all-day Suica)</span><span class="price">~$10</span></div>
+      <div class="cost-row"><span class="item">Shinjuku Gyoen entry</span><span class="price">$3</span></div>
+      <div class="cost-row"><span class="item">Tokyo Metropolitan Bldg (obs. deck)</span><span class="price">FREE</span></div>
+      <div class="cost-row"><span class="item">Lunch (Omoide Yokocho)</span><span class="price">~$13</span></div>
+      <div class="cost-row"><span class="item">Dinner + Golden Gai drinks</span><span class="price">~$28</span></div>
+      <div class="cost-row"><span class="item">Souvenirs / snacks</span><span class="price">~$10</span></div>
+      <div class="cost-row total"><span class="item">Day 2 Total</span><span class="price">~$64</span></div>
+    </div>
+  </div>
+
+  <div class="torii-divider">⛩ ⛩ ⛩</div>
+
+  <!-- DAY 3 -->
+  <div id="day3" class="day-block">
+    <div class="day-header">
+      <div class="day-number">03</div>
+      <div class="day-title-group">
+        <h3>Asakusa & Old Tokyo</h3>
+        <div class="sub">Senso-ji, rickshaws, river walks, and the taste of Edo-era Japan</div>
+      </div>
+      <div class="day-cost-badge">Est. $70–$90</div>
+    </div>
+
+    <div class="itinerary">
+      <div class="stop-card">
+        <div class="stop-time">Early Morning · 7:30 AM</div>
+        <div class="stop-name">Senso-ji Temple at Dawn</div>
+        <div class="stop-desc">Tokyo's oldest and most famous temple is transformative at dawn before the crowds. Walk through the Kaminarimon Gate, along Nakamise shopping street (still shuttered), and into the main hall for morning prayers.</div>
+        <span class="stop-price">FREE entry to temple grounds</span>
+      </div>
+      <div class="stop-card">
+        <div class="stop-time">Morning · 9:00 AM</div>
+        <div class="stop-name">Nakamise Shopping Street</div>
+        <div class="stop-desc">When the shops open, browse Japan's oldest shopping street for traditional snacks (ningyo-yaki cakes, ningyoyaki, kaminari-okoshi rice crackers) and handmade crafts. Great for authentic souvenirs.</div>
+        <span class="stop-price">Snacks: ¥300–¥800 (~$2–$5)</span>
+      </div>
+      <div class="stop-card">
+        <div class="stop-time">Mid-Morning · 10:30 AM</div>
+        <div class="stop-name">Sumida River Walk & Skytree</div>
+        <div class="stop-desc">Walk along the Sumida River to Tokyo Skytree — the world's tallest tower at 634m. The lower Tembo Deck at 350m offers breathtaking views. Book tickets online to save time and a small discount.</div>
+        <span class="stop-price">Tembo Deck: ¥2,100 (~$14) · online booking recommended</span>
+      </div>
+      <div class="stop-card">
+        <div class="stop-time">Afternoon · 1:00 PM</div>
+        <div class="stop-name">Lunch: Asakusa Soba</div>
+        <div class="stop-desc">Asakusa is the heartland of traditional Tokyo soba. Find a tiny counter restaurant serving hand-cut buckwheat noodles in dashi broth. This is unpretentious, perfect Japanese lunch food.</div>
+        <span class="stop-price">¥1,000–¥1,500 (~$7–$10)</span>
+      </div>
+      <div class="stop-card">
+        <div class="stop-time">Afternoon · 2:30 PM</div>
+        <div class="stop-name">Ueno Park & Museums</div>
+        <div class="stop-desc">Take the subway to Ueno, home to Tokyo's greatest cluster of world-class museums. The Tokyo National Museum holds Japan's largest collection of national treasures. The park itself is free and beautiful.</div>
+        <span class="stop-price">Tokyo National Museum: ¥1,000 (~$7) · Park: FREE</span>
+      </div>
+      <div class="stop-card">
+        <div class="stop-time">Evening · 7:00 PM</div>
+        <div class="stop-name">Dinner: Tempura in Asakusa</div>
+        <div class="stop-desc">Asakusa's Kaminarimon area has excellent traditional tempura restaurants at lunch and dinner prices. Try a tendon (tempura on rice bowl) — deeply satisfying, deeply Tokyo.</div>
+        <span class="stop-price">¥1,500–¥2,800 (~$10–$19)</span>
+      </div>
+    </div>
+
+    <div class="cost-table">
+      <h4>💴 Day 3 Cost Breakdown</h4>
+      <div class="cost-row"><span class="item">Metro (Suica card)</span><span class="price">~$8</span></div>
+      <div class="cost-row"><span class="item">Tokyo Skytree (Tembo Deck)</span><span class="price">$14</span></div>
+      <div class="cost-row"><span class="item">Tokyo National Museum</span><span class="price">$7</span></div>
+      <div class="cost-row"><span class="item">Lunch (soba)</span><span class="price">~$9</span></div>
+      <div class="cost-row"><span class="item">Dinner (tempura)</span><span class="price">~$15</span></div>
+      <div class="cost-row"><span class="item">Snacks / temple offerings</span><span class="price">~$6</span></div>
+      <div class="cost-row total"><span class="item">Day 3 Total</span><span class="price">~$59</span></div>
+    </div>
+  </div>
+
+  <div class="torii-divider">⛩ ⛩ ⛩</div>
+
+  <!-- DAY 4 -->
+  <div id="day4" class="day-block">
+    <div class="day-header">
+      <div class="day-number">04</div>
+      <div class="day-title-group">
+        <h3>Mt. Fuji Day Trip</h3>
+        <div class="sub">Japan's sacred summit — Fuji Five Lakes, the 5th Station, and mountain magic</div>
+      </div>
+      <div class="day-cost-badge">Est. $85–$120</div>
+    </div>
+
+    <div class="itinerary">
+      <div class="stop-card">
+        <div class="stop-time">Very Early · 6:00 AM</div>
+        <div class="stop-name">Shinjuku → Kawaguchiko (Bus)</div>
+        <div class="stop-desc">The Keio Highway Bus from Shinjuku Bus Terminal to Kawaguchiko Lake takes about 2 hours. This is the most scenic and affordable way to reach the Fuji Five Lakes area. Book tickets a few days ahead through the Keio Bus website.</div>
+        <span class="stop-price">¥2,200 one-way (~$15) · 2 hrs</span>
+      </div>
+      <div class="stop-card">
+        <div class="stop-time">Morning · 8:30 AM</div>
+        <div class="stop-name">Lake Kawaguchiko</div>
+        <div class="stop-desc">On a clear morning, the reflection of Mt. Fuji in the lake is simply one of the most spectacular sights in Japan. Rent a bicycle (¥500/hour) and ride the scenic lakeside path for the classic framed-Fuji photo.</div>
+        <span class="stop-price">Bicycle rental: ¥500/hr (~$3)</span>
+      </div>
+      <div class="stop-card">
+        <div class="stop-time">Midday · 11:00 AM</div>
+        <div class="stop-name">Fuji 5th Station (Fujinomiya)</div>
+        <div class="stop-desc">A local bus or taxi from Kawaguchiko reaches the 5th Station at 2,300m — the highest point you can reach without climbing. In summer, you can begin the hiking trail upward. The views above the cloud line are otherworldly.</div>
+        <span class="stop-price">Bus from Kawaguchi: ¥1,500 (~$10) · Trail: FREE</span>
+      </div>
+      <div class="stop-card">
+        <div class="stop-time">Afternoon · 1:30 PM</div>
+        <div class="stop-name">Lunch at the 5th Station</div>
+        <div class="stop-desc">The 5th Station has several restaurants and food stalls. Try hot Fuji-brand curry or udon — eating warm food at 2,300m surrounded by clouds and mountain air is a memory you'll keep forever.</div>
+        <span class="stop-price">¥1,200–¥1,800 (~$8–$12)</span>
+      </div>
+      <div class="stop-card">
+        <div class="stop-time">Late Afternoon · 3:30 PM</div>
+        <div class="stop-name">Oshino Hakkai (8 Springs)</div>
+        <div class="stop-desc">On the way back, stop at this UNESCO-listed village of eight crystal-clear springs fed by Fuji's snowmelt. The water is impossibly clear and the thatched farmhouses give you feudal Japan in 15 minutes.</div>
+        <span class="stop-price">~¥250 (~$2) area entry</span>
+      </div>
+      <div class="stop-card">
+        <div class="stop-time">Evening · 6:30 PM</div>
+        <div class="stop-name">Return to Tokyo (Bus)</div>
+        <div class="stop-desc">Evening buses from Kawaguchiko back to Shinjuku run frequently. Book your return in advance, especially on weekends, as these sell out. Arrive back at Shinjuku around 8:30 PM — dinner in the city to celebrate.</div>
+        <span class="stop-price">¥2,200 return (~$15) · Hotel dinner: ~$15</span>
+      </div>
+    </div>
+
+    <div class="cost-table">
+      <h4>💴 Day 4 Cost Breakdown</h4>
+      <div class="cost-row"><span class="item">Bus: Shinjuku ↔ Kawaguchiko (return)</span><span class="price">$30</span></div>
+      <div class="cost-row"><span class="item">Local bus to 5th Station (return)</span><span class="price">$14</span></div>
+      <div class="cost-row"><span class="item">Bicycle rental (2 hours)</span><span class="price">$4</span></div>
+      <div class="cost-row"><span class="item">Oshino Hakkai entry</span><span class="price">$2</span></div>
+      <div class="cost-row"><span class="item">Lunch at 5th Station</span><span class="price">~$10</span></div>
+      <div class="cost-row"><span class="item">Snacks + dinner on return</span><span class="price">~$18</span></div>
+      <div class="cost-row total"><span class="item">Day 4 Total</span><span class="price">~$78</span></div>
+    </div>
+  </div>
+
+  <div class="torii-divider">⛩ ⛩ ⛩</div>
+
+  <!-- DAY 5 -->
+  <div id="day5" class="day-block">
+    <div class="day-header">
+      <div class="day-number">05</div>
+      <div class="day-title-group">
+        <h3>Tokyo DisneySea</h3>
+        <div class="sub">The most beautifully designed theme park on Earth — a full-day commitment</div>
+      </div>
+      <div class="day-cost-badge">Est. $130–$160</div>
+    </div>
+
+    <div class="itinerary">
+      <div class="stop-card">
+        <div class="stop-time">Early · 7:30 AM</div>
+        <div class="stop-name">Train to Maihama Station</div>
+        <div class="stop-desc">Take the JR Keiyo Line from Tokyo Station to Maihama — about 15 minutes and under $2 each way on Suica. Then hop the Disney Resort Line monorail to the park entrance. Be at the gates when they open at 9 AM sharp — the first 30 minutes are magical with no crowds.</div>
+        <span class="stop-price">JR train: ¥290 (~$2) · Monorail: ¥260 (~$2)</span>
+      </div>
+      <div class="stop-card">
+        <div class="stop-time">Park Opens · 9:00 AM</div>
+        <div class="stop-name">Journey to Center of the Earth (Priority)</div>
+        <div class="stop-desc">This is DisneySea's signature ride — a Jules Verne-inspired plunge through an active volcano. Get there first thing or use the Disney Premier Access ($15–$20 extra) to skip lines later in the day.</div>
+        <span class="stop-price">Included in admission · Premier Access: ¥2,000–¥2,500</span>
+      </div>
+      <div class="stop-card">
+        <div class="stop-time">Mid-Morning · 11:00 AM</div>
+        <div class="stop-name">Mediterranean Harbor & Shows</div>
+        <div class="stop-desc">The heart of DisneySea is the most beautiful theme park "land" ever designed — a perfect replica of a Mediterranean port. Multiple water shows and character parades run from this harbor. Check the schedule at the gate.</div>
+        <span class="stop-price">Included in admission</span>
+      </div>
+      <div class="stop-card">
+        <div class="stop-time">Lunch · 12:30 PM</div>
+        <div class="stop-name">Dining in the Park</div>
+        <div class="stop-desc">DisneySea has genuinely excellent food compared to most theme parks — try the gyoza dog, the Mickey-shaped bao, or a full sit-down at the Magellan's restaurant. Budget accordingly: full meals are theme-park priced but the quality justifies it.</div>
+        <span class="stop-price">Quick service: ¥1,500 · Sit-down: ¥4,000–¥8,000</span>
+      </div>
+      <div class="stop-card">
+        <div class="stop-time">Afternoon · 3:00 PM</div>
+        <div class="stop-name">Indiana Jones, 20,000 Leagues & More</div>
+        <div class="stop-desc">DisneySea packs 7 distinct themed "ports of call." Don't miss 20,000 Leagues Under the Sea, Tower of Terror (themed entirely differently from American parks), and the Toy Story Mania games area for a break from lines.</div>
+        <span class="stop-price">Included in admission</span>
+      </div>
+      <div class="stop-card">
+        <div class="stop-time">Evening · 7:00 PM</div>
+        <div class="stop-name">Fantasmic! Night Show</div>
+        <div class="stop-desc">DisneySea's nighttime spectacular on the Mediterranean Harbor is a breathtaking projection, fireworks, and water show. Stake out a spot 45 minutes early at the harbor's edge. An unforgettable final evening in Tokyo.</div>
+        <span class="stop-price">Included in admission</span>
+      </div>
+    </div>
+
+    <div class="cost-table">
+      <h4>💴 Day 5 Cost Breakdown</h4>
+      <div class="cost-row"><span class="item">DisneySea 1-Day Passport (Adult, weekday)</span><span class="price">$52–$73</span></div>
+      <div class="cost-row"><span class="item">JR Train (Maihama return) + Monorail</span><span class="price">$4</span></div>
+      <div class="cost-row"><span class="item">Lunch in the park (quick service)</span><span class="price">~$10</span></div>
+      <div class="cost-row"><span class="item">Dinner in the park / evening snacks</span><span class="price">~$15</span></div>
+      <div class="cost-row"><span class="item">Park merchandise / souvenirs</span><span class="price">$15–$30</span></div>
+      <div class="cost-row total"><span class="item">Day 5 Total</span><span class="price">~$96–$132</span></div>
+    </div>
+  </div>
+
+</div><!-- end days-container -->
+
+<!-- TIPS -->
+<section id="tips" class="tips-section">
+  <h2>Insider Tips<br>& Practical<br>Advice</h2>
+  <div class="tips-grid">
+    <div class="tip-card">
+      <div class="tip-icon">🚇</div>
+      <h4>Get a Suica Card Immediately</h4>
+      <p>Load ¥5,000 on a Suica IC card at Narita or Haneda airport. Tap in and out of every subway, JR train, and bus — and pay at convenience stores, vending machines, and most restaurants. Crucial for Tokyo.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🏨</div>
+      <h4>Best Areas to Stay (Mid-Range)</h4>
+      <p>Shinjuku and Shibuya put you central to everything. Asakusa is cheaper and charming. Budget ¥18,000–¥22,000/night ($120–$150) for a clean, good-location business hotel. Book Toyoko Inn, APA Hotel, or Dormy Inn.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🍜</div>
+      <h4>Eat Like a Local, Spend Like a Budget Traveler</h4>
+      <p>Lunch set menus at restaurants (11am–2pm) often include full meals for ¥800–¥1,200 ($5–$8). Convenience stores (7-Eleven, FamilyMart) have excellent hot food. Save splurge meals for ramen, sushi counters, or tempura specialists.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">📱</div>
+      <h4>Get a Tourist SIM or eSIM</h4>
+      <p>Buy a Japan data SIM at the airport (¥3,000–¥5,000 for 2 weeks). Major carriers: IIJmio, Sakura Mobile, AiRSIM eSIM. You need data for Google Maps navigation — Tokyo's subway system is complex enough without it.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🎟️</div>
+      <h4>Book DisneySea Well in Advance</h4>
+      <p>Tickets must be purchased online at tokyodisneyresort.jp — they no longer sell at the gate. Adult weekday tickets run ¥7,900–¥9,400 (~$52–$63); weekend prices climb to ¥10,900 (~$73). Select your date and buy 1–2 months ahead.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">💴</div>
+      <h4>Cash Is Still King</h4>
+      <p>Many smaller restaurants, temples, and traditional shops are cash-only. Use 7-Eleven ATMs — they reliably accept international Visa/Mastercard. Withdraw ¥30,000–¥50,000 at the start and replenish as needed.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🗻</div>
+      <h4>Fuji Visibility Is Never Guaranteed</h4>
+      <p>Mt. Fuji is famously shy — clouds obscure the summit on 60–70% of days in summer. Go early (weekday mornings in autumn or winter are best). Check the live Fuji webcam the evening before your planned day trip.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🆓</div>
+      <h4>The Best Things Are Free</h4>
+      <p>Meiji Shrine, Senso-ji grounds, Shinjuku Gyoen (¥500), Tokyo Metropolitan Building observatory, Yoyogi Park, Hamarikyu Gardens, Ginza galleries, and most neighborhood walks cost nothing but time.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TOTAL SUMMARY -->
+<section class="total-summary">
+  <div>
+    <h2>5 Days in Tokyo:<br>The Real Number</h2>
+    <p style="color:rgba(255,255,255,0.65);font-size:0.85rem;margin-top:1.2rem;max-width:38ch;line-height:1.7;">Mid-range estimate for one person including accommodation, all transport, meals, and activities. Excludes international flights and shopping.</p>
+  </div>
+  <div class="total-grid">
+    <div class="total-line"><span>Hotel (4 nights × $140)</span><span>$560</span></div>
+    <div class="total-line"><span>Local transport (5 days Suica)</span><span>~$55</span></div>
+    <div class="total-line"><span>Mt. Fuji bus (return + local)</span><span>~$45</span></div>
+    <div class="total-line"><span>Food (5 days × ~$50)</span><span>~$250</span></div>
+    <div class="total-line"><span>DisneySea ticket (weekday)</span><span>~$65</span></div>
+    <div class="total-line"><span>Attractions (Skytree, museums, obs.)</span><span>~$40</span></div>
+    <div class="total-line"><span>Snacks / souvenirs (light)</span><span>~$60</span></div>
+    <div class="total-line"><span>✈️ <strong>Total on-the-ground (1 person)</strong></span><span><strong>~$1,075</strong></span></div>
+  </div>
+</section>
+
+<!-- BLOG PLATFORMS -->
+<section id="blog" class="platforms-section">
+  <div class="platforms-header">
+    <h2>Where to Publish<br>Your Travel Blog</h2>
+    <p style="color:var(--muted);font-size:0.82rem;max-width:30ch;text-align:right;line-height:1.6;">The best free and low-cost platforms to turn this Tokyo trip into a travel website</p>
+  </div>
+  <div class="platforms-grid">
+    <div class="platform-card">
+      <div class="p-name">WordPress.com</div>
+      <div class="p-type">Best for serious bloggers</div>
+      <p>Powers 40% of the internet. The free plan gives you a subdomain (yourblog.wordpress.com), unlimited posts, and built-in SEO. Upgrade to a paid plan (~$4/month) for a custom domain and monetization.</p>
+      <ul class="p-pros">
+        <li>Massive plugin ecosystem</li>
+        <li>Best long-term SEO potential</li>
+        <li>Thousands of travel templates</li>
+        <li>Easiest to monetize as you grow</li>
+      </ul>
+      <span class="p-badge free">Free plan available</span>
+    </div>
+    <div class="platform-card">
+      <div class="p-name">Wix</div>
+      <div class="p-type">Best drag-and-drop builder</div>
+      <p>100+ travel-specific templates, intuitive visual editor, and built-in SEO tools. The free plan shows Wix ads; remove them from $16/month. Great if you want beautiful design without coding.</p>
+      <ul class="p-pros">
+        <li>100+ travel blog templates</li>
+        <li>No coding required</li>
+        <li>Built-in SEO & analytics</li>
+        <li>Social media integration</li>
+      </ul>
+      <span class="p-badge free">Free plan available</span>
+    </div>
+    <div class="platform-card">
+      <div class="p-name">Travellerspoint</div>
+      <div class="p-type">Best travel-specific platform</div>
+      <p>A dedicated travel blogging community with interactive trip maps, unlimited photo uploads, and a built-in audience of fellow travelers. Perfect for documenting journeys with geo-tagged entries.</p>
+      <ul class="p-pros">
+        <li>Interactive travel maps</li>
+        <li>Built-in travel community</li>
+        <li>Unlimited photo uploads</li>
+        <li>Google Analytics integration</li>
+      </ul>
+      <span class="p-badge free">Completely free</span>
+    </div>
+    <div class="platform-card">
+      <div class="p-name">Blogger</div>
+      <div class="p-type">Google's free platform</div>
+      <p>Google's own blogging platform has been around since 1999. It's simple, free forever, has no storage limits, and integrates perfectly with Google AdSense — ideal if you want to eventually monetize with ads.</p>
+      <ul class="p-pros">
+        <li>Free forever, no limits</li>
+        <li>Easy AdSense monetization</li>
+        <li>Custom domain support</li>
+        <li>Google account integration</li>
+      </ul>
+      <span class="p-badge free">Completely free</span>
+    </div>
+    <div class="platform-card">
+      <div class="p-name">Medium</div>
+      <div class="p-type">Best for audience discovery</div>
+      <p>Write beautiful, minimal travel stories and tap into Medium's existing readership of millions. Stories can rank in Google quickly. Limited customization, but the writing experience is the cleanest of any platform.</p>
+      <ul class="p-pros">
+        <li>Built-in audience of millions</li>
+        <li>Beautiful reading experience</li>
+        <li>Partner Program income potential</li>
+        <li>Fast Google indexing</li>
+      </ul>
+      <span class="p-badge free">Free to publish</span>
+    </div>
+    <div class="platform-card">
+      <div class="p-name">Substack</div>
+      <div class="p-type">Best newsletter + blog combo</div>
+      <p>Write travel posts that double as an email newsletter. Build a subscriber list from day one. Substack is free to use and takes a 10% cut only when you launch paid subscriptions — perfect for growing an audience.</p>
+      <ul class="p-pros">
+        <li>Email list built-in from day one</li>
+        <li>Free until you charge subscribers</li>
+        <li>Great for narrative travel writing</li>
+        <li>Podcast hosting included</li>
+      </ul>
+      <span class="p-badge free">Free to start</span>
+    </div>
+  </div>
+  <p style="margin-top:2.5rem;font-size:0.78rem;color:var(--muted);max-width:70ch;line-height:1.7;"><strong>Pro tip:</strong> Start on WordPress.com or Wix for the best long-term SEO. Use Medium or Substack in parallel to distribute your best posts to a wider audience. Travellerspoint is uniquely built for travel storytelling and worth having for the interactive maps alone.</p>
+</section>
+
+<footer>
+  <div class="f-logo">東京 · Tokyo 2026</div>
+  <p>All prices approximate based on 2026 rates (¥148–152/USD). Verify current prices before booking.</p>
+</footer>
+
+</body>
+</html>
