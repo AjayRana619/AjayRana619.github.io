@@ -29,7 +29,7 @@
   /* HERO */
   .hero {
     min-height: 100vh;
-    background: var(--ink);
+    background: #0d0a1a;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -38,14 +38,20 @@
     overflow: hidden;
   }
 
-  .hero::before {
-    content: '';
+  #anime-canvas {
     position: absolute;
     inset: 0;
-    background:
-      radial-gradient(ellipse 80% 60% at 70% 40%, rgba(192,57,43,0.18) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 80% at 20% 70%, rgba(184,146,74,0.12) 0%, transparent 60%);
+    width: 100%;
+    height: 100%;
+    z-index: 0;
   }
+
+  .hero > *:not(#anime-canvas) {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero::before { display: none; }
 
   .hero-jp {
     font-family: 'Noto Serif JP', serif;
@@ -672,9 +678,10 @@
 
 <!-- HERO -->
 <section class="hero">
+  <canvas id="anime-canvas"></canvas>
   <div class="hero-jp">東京</div>
   <div class="hero-tag">5-Day Itinerary · 2026 Travel Guide · Mid-Range Budget</div>
-  <h1>Lost in<br><em>Tokyo</em></h1>
+  <h1>Getting Lost<br>in a <em>Good Way</em></h1>
   <div class="hero-meta">
     <span>📅 5 Days</span>
     <span>🗼 Shibuya · Shinjuku · Asakusa</span>
@@ -696,7 +703,6 @@
   <a class="nav-item" href="#day4">Day 4 · Mt. Fuji</a>
   <a class="nav-item" href="#day5">Day 5 · DisneySea</a>
   <a class="nav-item" href="#tips">Tips</a>
-  <a class="nav-item" href="#blog">Start Blogging</a>
 </nav>
 
 <!-- INTRO -->
@@ -1126,93 +1132,372 @@
   </div>
 </section>
 
-<!-- BLOG PLATFORMS -->
-<section id="blog" class="platforms-section">
-  <div class="platforms-header">
-    <h2>Where to Publish<br>Your Travel Blog</h2>
-    <p style="color:var(--muted);font-size:0.82rem;max-width:30ch;text-align:right;line-height:1.6;">The best free and low-cost platforms to turn this Tokyo trip into a travel website</p>
-  </div>
-  <div class="platforms-grid">
-    <div class="platform-card">
-      <div class="p-name">WordPress.com</div>
-      <div class="p-type">Best for serious bloggers</div>
-      <p>Powers 40% of the internet. The free plan gives you a subdomain (yourblog.wordpress.com), unlimited posts, and built-in SEO. Upgrade to a paid plan (~$4/month) for a custom domain and monetization.</p>
-      <ul class="p-pros">
-        <li>Massive plugin ecosystem</li>
-        <li>Best long-term SEO potential</li>
-        <li>Thousands of travel templates</li>
-        <li>Easiest to monetize as you grow</li>
-      </ul>
-      <span class="p-badge free">Free plan available</span>
-    </div>
-    <div class="platform-card">
-      <div class="p-name">Wix</div>
-      <div class="p-type">Best drag-and-drop builder</div>
-      <p>100+ travel-specific templates, intuitive visual editor, and built-in SEO tools. The free plan shows Wix ads; remove them from $16/month. Great if you want beautiful design without coding.</p>
-      <ul class="p-pros">
-        <li>100+ travel blog templates</li>
-        <li>No coding required</li>
-        <li>Built-in SEO & analytics</li>
-        <li>Social media integration</li>
-      </ul>
-      <span class="p-badge free">Free plan available</span>
-    </div>
-    <div class="platform-card">
-      <div class="p-name">Travellerspoint</div>
-      <div class="p-type">Best travel-specific platform</div>
-      <p>A dedicated travel blogging community with interactive trip maps, unlimited photo uploads, and a built-in audience of fellow travelers. Perfect for documenting journeys with geo-tagged entries.</p>
-      <ul class="p-pros">
-        <li>Interactive travel maps</li>
-        <li>Built-in travel community</li>
-        <li>Unlimited photo uploads</li>
-        <li>Google Analytics integration</li>
-      </ul>
-      <span class="p-badge free">Completely free</span>
-    </div>
-    <div class="platform-card">
-      <div class="p-name">Blogger</div>
-      <div class="p-type">Google's free platform</div>
-      <p>Google's own blogging platform has been around since 1999. It's simple, free forever, has no storage limits, and integrates perfectly with Google AdSense — ideal if you want to eventually monetize with ads.</p>
-      <ul class="p-pros">
-        <li>Free forever, no limits</li>
-        <li>Easy AdSense monetization</li>
-        <li>Custom domain support</li>
-        <li>Google account integration</li>
-      </ul>
-      <span class="p-badge free">Completely free</span>
-    </div>
-    <div class="platform-card">
-      <div class="p-name">Medium</div>
-      <div class="p-type">Best for audience discovery</div>
-      <p>Write beautiful, minimal travel stories and tap into Medium's existing readership of millions. Stories can rank in Google quickly. Limited customization, but the writing experience is the cleanest of any platform.</p>
-      <ul class="p-pros">
-        <li>Built-in audience of millions</li>
-        <li>Beautiful reading experience</li>
-        <li>Partner Program income potential</li>
-        <li>Fast Google indexing</li>
-      </ul>
-      <span class="p-badge free">Free to publish</span>
-    </div>
-    <div class="platform-card">
-      <div class="p-name">Substack</div>
-      <div class="p-type">Best newsletter + blog combo</div>
-      <p>Write travel posts that double as an email newsletter. Build a subscriber list from day one. Substack is free to use and takes a 10% cut only when you launch paid subscriptions — perfect for growing an audience.</p>
-      <ul class="p-pros">
-        <li>Email list built-in from day one</li>
-        <li>Free until you charge subscribers</li>
-        <li>Great for narrative travel writing</li>
-        <li>Podcast hosting included</li>
-      </ul>
-      <span class="p-badge free">Free to start</span>
-    </div>
-  </div>
-  <p style="margin-top:2.5rem;font-size:0.78rem;color:var(--muted);max-width:70ch;line-height:1.7;"><strong>Pro tip:</strong> Start on WordPress.com or Wix for the best long-term SEO. Use Medium or Substack in parallel to distribute your best posts to a wider audience. Travellerspoint is uniquely built for travel storytelling and worth having for the interactive maps alone.</p>
-</section>
-
 <footer>
   <div class="f-logo">東京 · Tokyo 2026</div>
   <p>All prices approximate based on 2026 rates (¥148–152/USD). Verify current prices before booking.</p>
 </footer>
 
+<script>
+(function() {
+  const canvas = document.getElementById('anime-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, t = 0;
+
+  function resize() {
+    W = canvas.width = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  // Stars
+  const stars = Array.from({length: 180}, () => ({
+    x: Math.random(), y: Math.random() * 0.55,
+    r: Math.random() * 1.4 + 0.3,
+    twinkle: Math.random() * Math.PI * 2
+  }));
+
+  // Floating lanterns
+  const lanterns = Array.from({length: 7}, (_, i) => ({
+    x: 0.08 + i * 0.13 + Math.random() * 0.05,
+    y: 0.18 + Math.random() * 0.18,
+    vy: -(0.00008 + Math.random() * 0.00006),
+    phase: Math.random() * Math.PI * 2,
+    size: 7 + Math.random() * 5
+  }));
+
+  // Cherry blossom petals
+  const petals = Array.from({length: 28}, () => ({
+    x: Math.random(),
+    y: Math.random(),
+    vx: -(0.0001 + Math.random() * 0.0002),
+    vy: 0.00005 + Math.random() * 0.0001,
+    rot: Math.random() * Math.PI * 2,
+    vrot: (Math.random() - 0.5) * 0.02,
+    size: 3 + Math.random() * 4,
+    opacity: 0.5 + Math.random() * 0.5
+  }));
+
+  function drawSky() {
+    // Deep night sky gradient — indigo to deep navy
+    const sky = ctx.createLinearGradient(0, 0, 0, H * 0.72);
+    sky.addColorStop(0, '#080614');
+    sky.addColorStop(0.4, '#12103a');
+    sky.addColorStop(0.75, '#1a2060');
+    sky.addColorStop(1, '#2a3a7a');
+    ctx.fillStyle = sky;
+    ctx.fillRect(0, 0, W, H);
+  }
+
+  function drawMoon() {
+    const mx = W * 0.78, my = H * 0.14, mr = H * 0.07;
+    // Moon glow
+    const glow = ctx.createRadialGradient(mx, my, mr * 0.5, mx, my, mr * 3);
+    glow.addColorStop(0, 'rgba(255,240,180,0.22)');
+    glow.addColorStop(1, 'rgba(255,220,100,0)');
+    ctx.fillStyle = glow;
+    ctx.beginPath();
+    ctx.arc(mx, my, mr * 3, 0, Math.PI * 2);
+    ctx.fill();
+    // Moon disc
+    const moonGrad = ctx.createRadialGradient(mx - mr*0.2, my - mr*0.2, mr*0.05, mx, my, mr);
+    moonGrad.addColorStop(0, '#fffde0');
+    moonGrad.addColorStop(0.6, '#fde68a');
+    moonGrad.addColorStop(1, '#f59e0b');
+    ctx.fillStyle = moonGrad;
+    ctx.beginPath();
+    ctx.arc(mx, my, mr, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  function drawStars() {
+    stars.forEach(s => {
+      const alpha = 0.5 + 0.5 * Math.sin(s.twinkle + t * 0.012);
+      ctx.save();
+      ctx.globalAlpha = alpha;
+      ctx.fillStyle = '#fff';
+      ctx.beginPath();
+      ctx.arc(s.x * W, s.y * H, s.r, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+      s.twinkle += 0.015;
+    });
+  }
+
+  function drawFuji() {
+    const bx = W * 0.5, by = H * 0.56;
+    const fw = W * 0.75, fh = H * 0.38;
+
+    // Fuji silhouette — dark blue-purple anime style
+    ctx.beginPath();
+    ctx.moveTo(bx - fw * 0.5, by);
+    ctx.lineTo(bx - fw * 0.18, by - fh * 0.55);
+    ctx.quadraticCurveTo(bx - fw * 0.07, by - fh * 0.72, bx, by - fh);
+    ctx.quadraticCurveTo(bx + fw * 0.07, by - fh * 0.72, bx + fw * 0.18, by - fh * 0.55);
+    ctx.lineTo(bx + fw * 0.5, by);
+    ctx.closePath();
+    const fujiGrad = ctx.createLinearGradient(bx, by - fh, bx, by);
+    fujiGrad.addColorStop(0, '#1e1b4b');
+    fujiGrad.addColorStop(0.4, '#2d2f6e');
+    fujiGrad.addColorStop(1, '#3d4a8a');
+    ctx.fillStyle = fujiGrad;
+    ctx.fill();
+
+    // Snow cap
+    ctx.beginPath();
+    ctx.moveTo(bx, by - fh);
+    ctx.quadraticCurveTo(bx + fw * 0.04, by - fh * 0.82, bx + fw * 0.09, by - fh * 0.74);
+    ctx.quadraticCurveTo(bx, by - fh * 0.78, 0, 0);
+    ctx.quadraticCurveTo(bx, by - fh * 0.78, bx - fw * 0.09, by - fh * 0.74);
+    ctx.quadraticCurveTo(bx - fw * 0.04, by - fh * 0.82, bx, by - fh);
+    ctx.closePath();
+    const snowGrad = ctx.createLinearGradient(bx, by - fh, bx, by - fh * 0.72);
+    snowGrad.addColorStop(0, 'rgba(255,255,255,0.95)');
+    snowGrad.addColorStop(0.5, 'rgba(220,230,255,0.7)');
+    snowGrad.addColorStop(1, 'rgba(180,200,255,0.0)');
+    ctx.fillStyle = snowGrad;
+    ctx.fill();
+
+    // Fuji outline glow
+    ctx.beginPath();
+    ctx.moveTo(bx - fw * 0.5, by);
+    ctx.lineTo(bx - fw * 0.18, by - fh * 0.55);
+    ctx.quadraticCurveTo(bx - fw * 0.07, by - fh * 0.72, bx, by - fh);
+    ctx.quadraticCurveTo(bx + fw * 0.07, by - fh * 0.72, bx + fw * 0.18, by - fh * 0.55);
+    ctx.lineTo(bx + fw * 0.5, by);
+    ctx.strokeStyle = 'rgba(150,160,255,0.18)';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+  }
+
+  function drawClouds() {
+    const cloudY = H * 0.48;
+    // Anime-style flat clouds with pink/purple tint
+    [[0.12, 1.0], [0.38, 0.8], [0.62, 0.9], [0.85, 0.75]].forEach(([xr, scale]) => {
+      const cx = W * xr + Math.sin(t * 0.003 + xr * 10) * 8;
+      const cy = cloudY + Math.sin(t * 0.004 + xr * 5) * 5;
+      const cw = W * 0.12 * scale, ch = H * 0.022 * scale;
+      const cg = ctx.createRadialGradient(cx, cy, 0, cx, cy, cw);
+      cg.addColorStop(0, 'rgba(200,180,255,0.32)');
+      cg.addColorStop(0.6, 'rgba(180,160,240,0.14)');
+      cg.addColorStop(1, 'rgba(150,130,220,0)');
+      ctx.fillStyle = cg;
+      ctx.beginPath();
+      ctx.ellipse(cx, cy, cw, ch, 0, 0, Math.PI * 2);
+      ctx.fill();
+    });
+  }
+
+  function drawTokyoSkyline() {
+    const base = H * 0.56;
+    const buildings = [
+      // [xRatio, width, height, windows]
+      [0.0,  0.055, 0.18, true],
+      [0.05, 0.04,  0.14, true],
+      [0.09, 0.06,  0.22, true],
+      [0.14, 0.035, 0.12, false],
+      [0.17, 0.05,  0.19, true],
+      [0.82, 0.05,  0.17, true],
+      [0.86, 0.04,  0.13, false],
+      [0.89, 0.065, 0.21, true],
+      [0.94, 0.04,  0.15, true],
+      [0.97, 0.03,  0.10, false],
+    ];
+
+    buildings.forEach(([xr, wr, hr, hasWindows]) => {
+      const bx = W * xr, bw = W * wr, bh = H * hr;
+      const by = base - bh;
+
+      // Building body
+      const bg = ctx.createLinearGradient(bx, by, bx + bw, base);
+      bg.addColorStop(0, '#0f1535');
+      bg.addColorStop(1, '#1a2050');
+      ctx.fillStyle = bg;
+      ctx.fillRect(bx, by, bw, bh);
+
+      // Neon edge glow
+      ctx.strokeStyle = 'rgba(100,140,255,0.25)';
+      ctx.lineWidth = 1;
+      ctx.strokeRect(bx, by, bw, bh);
+
+      // Windows
+      if (hasWindows) {
+        const cols = Math.floor(bw / 6), rows = Math.floor(bh / 9);
+        for (let r = 0; r < rows; r++) {
+          for (let c = 0; c < cols; c++) {
+            const lit = Math.sin(r * 3.7 + c * 2.3 + t * 0.01) > 0.1;
+            if (lit) {
+              const wx = bx + 3 + c * 6, wy = by + 4 + r * 9;
+              const winColor = (r + c) % 3 === 0 ? 'rgba(255,200,80,0.7)' :
+                               (r + c) % 3 === 1 ? 'rgba(120,180,255,0.6)' : 'rgba(255,120,160,0.5)';
+              ctx.fillStyle = winColor;
+              ctx.fillRect(wx, wy, 3, 4);
+            }
+          }
+        }
+      }
+    });
+
+    // Tokyo Tower (right side, iconic red)
+    const tx = W * 0.76, tw = W * 0.018, th = H * 0.28;
+    const tbase = base;
+    // Main tower body
+    ctx.beginPath();
+    ctx.moveTo(tx + tw/2, tbase - th);
+    ctx.lineTo(tx + tw * 1.8, tbase);
+    ctx.lineTo(tx - tw * 0.8, tbase);
+    ctx.closePath();
+    const towerGrad = ctx.createLinearGradient(tx, tbase - th, tx, tbase);
+    towerGrad.addColorStop(0, '#ff6b35');
+    towerGrad.addColorStop(0.5, '#cc3311');
+    towerGrad.addColorStop(1, '#881100');
+    ctx.fillStyle = towerGrad;
+    ctx.fill();
+
+    // Tower antenna
+    ctx.strokeStyle = '#ff6b35';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(tx + tw/2, tbase - th);
+    ctx.lineTo(tx + tw/2, tbase - th - H * 0.06);
+    ctx.stroke();
+
+    // Blinking light on antenna
+    const blink = Math.sin(t * 0.05) > 0;
+    if (blink) {
+      ctx.fillStyle = 'rgba(255,80,80,0.9)';
+      ctx.beginPath();
+      ctx.arc(tx + tw/2, tbase - th - H * 0.06, 3, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  function drawGround() {
+    // Water reflection — lake at base
+    const base = H * 0.56;
+    const wg = ctx.createLinearGradient(0, base, 0, H);
+    wg.addColorStop(0, '#0a1545');
+    wg.addColorStop(0.3, '#0d1a55');
+    wg.addColorStop(1, '#060e2e');
+    ctx.fillStyle = wg;
+    ctx.fillRect(0, base, W, H - base);
+
+    // Fuji reflection in water
+    ctx.save();
+    ctx.globalAlpha = 0.18;
+    ctx.scale(1, -0.35);
+    ctx.translate(0, -(base * 2 / 0.35 + H * 0.1));
+    drawFuji();
+    ctx.restore();
+
+    // Ripple lines
+    for (let i = 0; i < 5; i++) {
+      const ry = base + H * (0.04 + i * 0.06);
+      const rx = Math.sin(t * 0.008 + i) * W * 0.04;
+      ctx.strokeStyle = `rgba(100,140,255,${0.06 - i * 0.01})`;
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(W * 0.1 + rx, ry);
+      ctx.lineTo(W * 0.9 + rx, ry);
+      ctx.stroke();
+    }
+
+    // Neon reflections on water
+    ['rgba(255,80,120,0.12)', 'rgba(80,120,255,0.10)', 'rgba(255,200,80,0.08)'].forEach((col, i) => {
+      const rx = W * (0.2 + i * 0.3);
+      const rg = ctx.createLinearGradient(rx, base, rx, H * 0.75);
+      rg.addColorStop(0, col);
+      rg.addColorStop(1, 'transparent');
+      ctx.fillStyle = rg;
+      ctx.fillRect(rx - 15, base, 30, H * 0.2);
+    });
+  }
+
+  function drawLanterns() {
+    lanterns.forEach(l => {
+      const lx = l.x * W, ly = l.y * H;
+      const sway = Math.sin(t * 0.018 + l.phase) * 12;
+      const glow = ctx.createRadialGradient(lx + sway, ly, 2, lx + sway, ly, l.size * 2.5);
+      glow.addColorStop(0, 'rgba(255,120,60,0.6)');
+      glow.addColorStop(0.5, 'rgba(255,80,30,0.2)');
+      glow.addColorStop(1, 'rgba(255,60,0,0)');
+      ctx.fillStyle = glow;
+      ctx.beginPath();
+      ctx.arc(lx + sway, ly, l.size * 2.5, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Lantern body
+      ctx.fillStyle = '#e63000';
+      ctx.beginPath();
+      ctx.ellipse(lx + sway, ly, l.size * 0.5, l.size * 0.75, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.strokeStyle = 'rgba(255,180,100,0.6)';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+
+      // String
+      ctx.strokeStyle = 'rgba(255,255,255,0.15)';
+      ctx.lineWidth = 0.7;
+      ctx.beginPath();
+      ctx.moveTo(lx + sway, ly - l.size * 0.75);
+      ctx.lineTo(lx, ly - l.size * 1.5);
+      ctx.stroke();
+
+      l.y += l.vy;
+      if (l.y < -0.05) l.y = 0.7 + Math.random() * 0.1;
+    });
+  }
+
+  function drawPetals() {
+    petals.forEach(p => {
+      ctx.save();
+      ctx.globalAlpha = p.opacity * (0.6 + 0.4 * Math.sin(t * 0.02 + p.rot));
+      ctx.translate(p.x * W, p.y * H);
+      ctx.rotate(p.rot);
+      // Petal shape
+      ctx.beginPath();
+      ctx.ellipse(0, 0, p.size, p.size * 0.55, 0, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255,${160 + Math.floor(Math.random()*20)},${180 + Math.floor(Math.random()*20)},0.85)`;
+      ctx.fill();
+      ctx.restore();
+
+      p.x += p.vx + Math.sin(t * 0.01 + p.rot) * 0.0003;
+      p.y += p.vy;
+      p.rot += p.vrot;
+      if (p.x < -0.05) p.x = 1.05;
+      if (p.y > 1.05) { p.y = -0.05; p.x = Math.random(); }
+    });
+  }
+
+  function drawOverlay() {
+    // Atmospheric depth overlay at bottom of hero
+    const ov = ctx.createLinearGradient(0, H * 0.7, 0, H);
+    ov.addColorStop(0, 'rgba(5,8,30,0)');
+    ov.addColorStop(1, 'rgba(5,8,30,0.75)');
+    ctx.fillStyle = ov;
+    ctx.fillRect(0, H * 0.7, W, H * 0.3);
+  }
+
+  function frame() {
+    ctx.clearRect(0, 0, W, H);
+    drawSky();
+    drawStars();
+    drawMoon();
+    drawClouds();
+    drawFuji();
+    drawTokyoSkyline();
+    drawGround();
+    drawLanterns();
+    drawPetals();
+    drawOverlay();
+    t++;
+    requestAnimationFrame(frame);
+  }
+
+  frame();
+})();
+</script>
 </body>
 </html>
+tokyo-travel-blog 3.html
+Displaying tokyo-travel-blog 3.html.
