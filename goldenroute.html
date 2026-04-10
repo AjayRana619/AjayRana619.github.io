@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japan's Golden Route: An Honest 10-Day Itinerary</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --sakura: #fde8ee; --sakura2: #f9c6d5; --sakura3: #c45f80;
+    --sky: #e3eef9; --sky2: #aacbec; --sky3: #3a7abf;
+    --matcha: #e6f0e6; --matcha2: #9dbe9d; --matcha3: #3d6b3d;
+    --cream: #fdf6ee; --cream2: #f0e0c8; --cream3: #b8845a;
+    --nara: #eee8f5; --nara2: #c9b8e8; --nara3: #6a4daa;
+    --sand: #faf5ee; --sand2: #e8dcc8; --sand3: #8a6a40;
+    --text: #2c2018; --text2: #5a4a38; --text3: #8a7a68;
+    --white: #fffdf9;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--sand);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--sakura) 0%, var(--sky) 50%, var(--matcha) 100%);
+    padding: 4rem 2rem 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, #e8839e33 1.5px, transparent 1.5px);
+    background-size: 32px 32px;
+  }
+  .hero-inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
+  .hero-tag {
+    display: inline-block;
+    background: var(--sakura2); color: var(--sakura3);
+    font-size: 11px; font-weight: 500; letter-spacing: 2.5px;
+    text-transform: uppercase; padding: 5px 16px; border-radius: 20px; margin-bottom: 1.2rem;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 600; color: var(--text); line-height: 1.2; margin-bottom: 1rem;
+  }
+  .hero-sub { font-size: .95rem; color: var(--text2); margin-bottom: 1.75rem; line-height: 1.7; }
+  .hero-pills { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+  .pill {
+    background: var(--white); font-size: 12px; font-weight: 500; color: var(--text2);
+    padding: 6px 14px; border-radius: 20px; border: 1px solid var(--sand2);
+  }
+
+  /* LAYOUT */
+  .wrap { max-width: 860px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+
+  /* HEADINGS */
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 600; color: var(--text); margin-bottom: .5rem; line-height: 1.25;
+  }
+  h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; font-weight: 600; color: var(--text); margin: 1.5rem 0 .5rem;
+  }
+  p { font-size: .95rem; color: var(--text2); margin-bottom: .9rem; line-height: 1.8; }
+
+  /* OVERVIEW GRID */
+  .overview-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 1.5rem 0; }
+  .ov-card {
+    background: var(--white); border-radius: 12px; padding: 1rem;
+    border: 1px solid rgba(0,0,0,.06); display: flex; align-items: flex-start; gap: 10px;
+  }
+  .ov-icon {
+    width: 38px; height: 38px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0;
+  }
+  .ov-city { font-weight: 500; font-size: .9rem; color: var(--text); margin-bottom: 2px; }
+  .ov-desc { font-size: .78rem; color: var(--text3); }
+
+  /* BUDGET CARDS */
+  .budget-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 1.5rem 0; }
+  .bcard { border-radius: 14px; padding: 1.25rem 1rem; text-align: center; }
+  .bcard.budget  { background: var(--matcha); border: 1px solid var(--matcha2); }
+  .bcard.midrange{ background: var(--sky);    border: 1px solid var(--sky2); }
+  .bcard.comfort { background: var(--sakura); border: 1px solid var(--sakura2); }
+  .bcard-label { font-size: 10px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--text3); margin-bottom: .4rem; }
+  .bcard-amount { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600; color: var(--text); margin-bottom: .3rem; }
+  .bcard-note { font-size: 11px; color: var(--text3); }
+
+  /* SECTION TAG */
+  .section-tag {
+    display: inline-block; font-size: 10px; font-weight: 500;
+    letter-spacing: 2.5px; text-transform: uppercase;
+    padding: 4px 13px; border-radius: 10px; margin-bottom: .6rem;
+  }
+  .t-tokyo  { background: var(--sky);    color: var(--sky3); }
+  .t-kyoto  { background: var(--matcha); color: var(--matcha3); }
+  .t-nara   { background: var(--nara);   color: var(--nara3); }
+  .t-osaka  { background: var(--sakura); color: var(--sakura3); }
+  .t-transit{ background: var(--cream);  color: var(--cream3); }
+
+  /* CITY BLOCKS */
+  .city-block { border-radius: 18px; padding: 2rem; margin: 2.5rem 0; border: 1px solid transparent; }
+  .city-tokyo  { background: var(--sky);    border-color: var(--sky2); }
+  .city-kyoto  { background: var(--matcha); border-color: var(--matcha2); }
+  .city-nara   { background: var(--nara);   border-color: var(--nara2); }
+  .city-osaka  { background: var(--sakura); border-color: var(--sakura2); }
+
+  /* HERO IMAGE */
+  .city-img {
+    width: 100%; height: 280px; object-fit: cover;
+    border-radius: 12px; display: block; margin: 1rem 0 1.25rem;
+  }
+
+  /* DAY CARDS */
+  .day-card {
+    background: var(--white); border-radius: 12px;
+    padding: 1.25rem 1.25rem 1rem; margin: .75rem 0;
+    border: 1px solid rgba(0,0,0,.06);
+  }
+  .day-label { font-size: 10px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--text3); margin-bottom: .4rem; }
+  .day-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 600; color: var(--text); margin-bottom: .65rem; }
+
+  .activity-list { list-style: none; padding: 0; }
+  .activity-list li {
+    font-size: .875rem; color: var(--text2);
+    padding: 5px 0 5px 1.3rem; position: relative;
+    border-bottom: 1px dashed rgba(0,0,0,.07);
+  }
+  .activity-list li:last-child { border-bottom: none; }
+  .activity-list li::before { content: '→'; position: absolute; left: 0; color: var(--text3); font-size: .8rem; top: 6px; }
+
+  .cost { display: inline-block; font-size: 11px; font-weight: 500; padding: 1px 8px; border-radius: 7px; background: rgba(0,0,0,.07); color: var(--text2); margin-left: 5px; }
+
+  /* TIP BOX */
+  .tip-box {
+    background: var(--cream); border-left: 3px solid var(--cream3);
+    border-radius: 0 10px 10px 0; padding: .9rem 1rem;
+    margin: .9rem 0; font-size: .875rem; color: var(--text2);
+  }
+  .tip-box strong { color: var(--cream3); font-weight: 500; }
+
+  /* PRICE TABLE */
+  .price-table { width: 100%; border-collapse: collapse; margin: .75rem 0; font-size: .875rem; }
+  .price-table tr { border-bottom: 1px solid rgba(0,0,0,.07); }
+  .price-table tr:last-child { border-bottom: none; }
+  .price-table td { padding: 7px 4px; color: var(--text2); }
+  .price-table td:last-child { text-align: right; font-weight: 500; color: var(--text); }
+
+  /* TRANSIT BOX */
+  .transit-box { background: var(--cream); border-radius: 14px; padding: 1.75rem; margin: 2.5rem 0; border: 1px solid var(--cream2); }
+
+  /* SUMMARY TABLE */
+  .summary-wrap { overflow-x: auto; margin: 1rem 0; }
+  .summary-table {
+    width: 100%; border-collapse: collapse; font-size: .85rem;
+    background: var(--white); border-radius: 12px;
+    overflow: hidden; border: 1px solid rgba(0,0,0,.07);
+    min-width: 520px;
+  }
+  .summary-table th { background: var(--sand2); padding: 10px 12px; text-align: left; font-weight: 500; color: var(--text2); font-size: .8rem; }
+  .summary-table td { padding: 8px 12px; color: var(--text2); border-bottom: 1px solid rgba(0,0,0,.05); }
+  .summary-table tr:last-child td { border-bottom: none; }
+  .summary-table tr:nth-child(even) td { background: rgba(0,0,0,.018); }
+
+  /* TIPS GRID */
+  .tips-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 1rem 0; }
+  .tip-card { background: var(--white); border-radius: 12px; padding: 1.1rem; border: 1px solid rgba(0,0,0,.06); }
+  .tip-card-title { font-weight: 500; font-size: .9rem; color: var(--text); margin-bottom: .4rem; }
+  .tip-card p { font-size: .83rem; margin-bottom: 0; }
+
+  /* RESOURCES */
+  .resources { background: var(--matcha); border-radius: 14px; padding: 1.5rem; margin: 2rem 0; border: 1px solid var(--matcha2); }
+  .res-link {
+    display: flex; align-items: center; gap: 12px; padding: .75rem 0;
+    border-bottom: 1px dashed var(--matcha2); text-decoration: none; color: var(--text);
+  }
+  .res-link:last-child { border-bottom: none; padding-bottom: 0; }
+  .res-link:hover .res-name { color: var(--matcha3); }
+  .res-icon {
+    width: 34px; height: 34px; border-radius: 8px; background: var(--white);
+    display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0;
+  }
+  .res-name { font-weight: 500; font-size: .9rem; color: var(--text); margin-bottom: 2px; }
+  .res-desc { font-size: .78rem; color: var(--text3); }
+
+  /* FOOTER */
+  .footer {
+    text-align: center; padding: 2rem 1.5rem;
+    font-size: .8rem; color: var(--text3);
+    background: var(--sand2); margin-top: 2rem;
+    line-height: 2;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    .budget-grid { grid-template-columns: 1fr; }
+    .overview-grid { grid-template-columns: 1fr; }
+    .tips-grid { grid-template-columns: 1fr; }
+    .city-block { padding: 1.25rem; }
+    .city-img { height: 200px; }
+    .wrap { padding: 1.5rem 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Golden Route · 10 Days</div>
+    <h1>Japan: Tokyo → Kyoto<br>→ Nara → Osaka</h1>
+    <p class="hero-sub">An honest, budget-first travel guide with all prices in Japanese Yen.<br>No sponsorships. No affiliate links. No fluff.</p>
+    <div class="hero-pills">
+      <span class="pill">🗼 3–4 Days Tokyo</span>
+      <span class="pill">⛩️ 3 Days Kyoto</span>
+      <span class="pill">🦌 1 Day Nara</span>
+      <span class="pill">🐙 2–3 Days Osaka</span>
+      <span class="pill">¥ All prices in Yen</span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- OVERVIEW -->
+  <div class="overview-grid" style="margin-top:1.5rem">
+    <div class="ov-card">
+      <div class="ov-icon" style="background:var(--sky)">🗼</div>
+      <div><div class="ov-city">Tokyo — Days 1–4</div><div class="ov-desc">Modern megacity · street food · neon nights</div></div>
+    </div>
+    <div class="ov-card">
+      <div class="ov-icon" style="background:var(--matcha)">⛩️</div>
+      <div><div class="ov-city">Kyoto — Days 5–7</div><div class="ov-desc">Ancient temples · bamboo groves · geisha lanes</div></div>
+    </div>
+    <div class="ov-card">
+      <div class="ov-icon" style="background:var(--nara)">🦌</div>
+      <div><div class="ov-city">Nara — Day 8</div><div class="ov-desc">Wild deer · giant Buddha · serene park</div></div>
+    </div>
+    <div class="ov-card">
+      <div class="ov-icon" style="background:var(--sakura)">🐙</div>
+      <div><div class="ov-city">Osaka — Days 9–10</div><div class="ov-desc">Street food heaven · nightlife · Dotonbori canal</div></div>
+    </div>
+  </div>
+
+  <!-- BUDGET -->
+  <h2 style="margin-top:2.5rem">Honest Budget (10 Days Per Person)</h2>
+  <p>All figures in Japanese Yen, based on 2025–2026 traveler reports. Food is surprisingly affordable; accommodation is where costs climb.</p>
+  <div class="budget-grid">
+    <div class="bcard budget">
+      <div class="bcard-label">Budget</div>
+      <div class="bcard-amount">¥85,000</div>
+      <div class="bcard-note">Hostels · conbini meals · free sights</div>
+    </div>
+    <div class="bcard midrange">
+      <div class="bcard-label">Mid-range</div>
+      <div class="bcard-amount">¥195,000</div>
+      <div class="bcard-note">Business hotels · restaurants · temples</div>
+    </div>
+    <div class="bcard comfort">
+      <div class="bcard-label">Comfort</div>
+      <div class="bcard-amount">¥460,000+</div>
+      <div class="bcard-note">Ryokans · kaiseki dinners · taxis</div>
+    </div>
+  </div>
+  <div class="tip-box">
+    <strong>Honest tip:</strong> Kyoto accommodation runs 30–50% more than Osaka. Many savvy travelers stay in Osaka and day-trip to Kyoto — it's only ¥560 and 40 minutes by express train.
+  </div>
+
+  <!-- ARRIVAL -->
+  <h2 style="margin-top:2.5rem">Getting There</h2>
+  <p>Most international flights land at Narita (NRT) or Haneda (HND). Haneda is far closer to central Tokyo. Get a <strong>Suica IC card</strong> at the airport machine immediately — load ¥5,000 and use it everywhere for the entire trip.</p>
+  <table class="price-table">
+    <tr><td>Narita Express (NEX) to Shinjuku</td><td>¥3,070 · ~60 min</td></tr>
+    <tr><td>Limousine Bus from Narita</td><td>¥3,200 · ~90 min</td></tr>
+    <tr><td>Haneda Monorail to Hamamatsucho</td><td>¥500 · ~30 min</td></tr>
+    <tr><td>Taxi from Haneda (city center)</td><td>¥5,000–¥8,000</td></tr>
+  </table>
+
+  <!-- ==================== TOKYO ==================== -->
+  <div class="city-block city-tokyo">
+    <div class="section-tag t-tokyo">Tokyo · Days 1–4</div>
+    <h2>The Megacity</h2>
+    <p>Tokyo is not one city — it's 40 neighborhoods sharing a train network. Don't try to see everything. Pick your districts and go deep.</p>
+
+    <!-- CONFIRMED: Shibuya Crossing aerial night shot by Sarmat Batagov -->
+    <img class="city-img"
+      src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=1200&auto=format&fit=crop&q=80"
+      alt="Shibuya Scramble Crossing at night, Tokyo">
+
+    <div class="day-card">
+      <div class="day-label">Day 1</div>
+      <div class="day-title">Land, Orient, Survive</div>
+      <ul class="activity-list">
+        <li>Arrive · check in · nap — you will be jet-lagged, accept it</li>
+        <li>Evening wander through Shinjuku — absorb the chaos, don't plan anything</li>
+        <li>Dinner at Ichiran Ramen (solo booth) <span class="cost">¥1,200–¥1,500</span></li>
+        <li>Optional: one drink in Golden Gai <span class="cost">¥600–¥1,000</span></li>
+      </ul>
+    </div>
+
+    <div class="day-card">
+      <div class="day-label">Day 2</div>
+      <div class="day-title">Asakusa, Skytree & Akihabara</div>
+      <ul class="activity-list">
+        <li>Senso-ji Temple · Nakamise Street snacks <span class="cost">Free · ¥200</span></li>
+        <li>Tokyo Skytree observation deck <span class="cost">¥2,100–¥3,400</span></li>
+        <li>Akihabara — electronics, anime, gaming floors</li>
+        <li>Daily transport via Suica <span class="cost">~¥400</span></li>
+      </ul>
+    </div>
+
+    <div class="day-card">
+      <div class="day-label">Day 3</div>
+      <div class="day-title">Meiji, Harajuku & Shibuya Crossing</div>
+      <ul class="activity-list">
+        <li>Meiji Shrine (arrive early for calm) <span class="cost">Free</span></li>
+        <li>Takeshita Street · Yoyogi Park</li>
+        <li>Shibuya Crossing — shoot from Mag's Park rooftop <span class="cost">Free</span></li>
+        <li>Evening drinks in Shimokitazawa — local, not touristy</li>
+      </ul>
+      <div class="tip-box" style="margin-top:.75rem">
+        <strong>Honest tip:</strong> The famous Shibuya crossing aerial photo is taken from inside Starbucks (2nd floor) or Mag's Park rooftop — both free with a coffee (¥500).
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-label">Day 4</div>
+      <div class="day-title">Shinjuku Gyoen & teamLab</div>
+      <ul class="activity-list">
+        <li>Shinjuku Gyoen Garden <span class="cost">¥500</span></li>
+        <li>Tokyo Metropolitan Government Building — free observatory <span class="cost">FREE</span></li>
+        <li>teamLab Borderless digital art museum — book online in advance <span class="cost">¥3,200</span></li>
+      </ul>
+      <div class="tip-box" style="margin-top:.75rem">
+        <strong>Honest tip:</strong> The Metropolitan Government Building gives the same skyline view as Tokyo Skytree for ¥0. Almost no tourists know it exists.
+      </div>
+    </div>
+
+    <h3>Tokyo price guide</h3>
+    <table class="price-table">
+      <tr><td>Ramen bowl</td><td>¥900–¥1,500</td></tr>
+      <tr><td>Conveyor-belt sushi (per plate)</td><td>¥110–¥330</td></tr>
+      <tr><td>Convenience store meal</td><td>¥300–¥700</td></tr>
+      <tr><td>Single subway ride</td><td>¥170–¥320</td></tr>
+      <tr><td>Capsule hotel (per night)</td><td>¥3,500–¥6,000</td></tr>
+      <tr><td>Business hotel (per night)</td><td>¥8,000–¥15,000</td></tr>
+    </table>
+  </div>
+
+  <!-- TRANSIT -->
+  <div class="transit-box">
+    <div class="section-tag t-transit">Transit</div>
+    <h2>Tokyo → Kyoto by Shinkansen</h2>
+    <p>The Nozomi bullet train covers the distance in <strong>2 hours 15 minutes</strong>. It is spotless, silent, and on-time to the minute.</p>
+    <table class="price-table">
+      <tr><td>Tokyo → Kyoto (Nozomi, one-way)</td><td>¥13,000–¥14,000</td></tr>
+      <tr><td>7-day JR Pass</td><td>¥80,000</td></tr>
+    </table>
+    <div class="tip-box">
+      <strong>Honest JR Pass tip:</strong> For this specific Tokyo–Kyoto–Osaka route, individual tickets cost roughly ¥28,000 return. The ¥80,000 JR Pass is not worth it unless you're also adding Hiroshima, Hakone, or other cities. Buy individual tickets via the JR West website.
+    </div>
+  </div>
+
+  <!-- ==================== KYOTO ==================== -->
+  <div class="city-block city-kyoto">
+    <div class="section-tag t-kyoto">Kyoto · Days 5–7</div>
+    <h2>The Ancient Capital</h2>
+    <p>Kyoto is the antidote to Tokyo — ancient, walkable, and genuinely peaceful if you time it right. Arrive at every famous site at opening time (8:00–9:00 AM). The difference between 8:30 and 10:30 is thousands of people.</p>
+
+    <div class="day-card">
+      <div class="day-label">Day 5</div>
+      <div class="day-title">Arashiyama & the Bamboo Grove</div>
+      <ul class="activity-list">
+        <li>Arashiyama Bamboo Grove — go at 7:00 AM <span class="cost">Free</span></li>
+        <li>Iwatayama Monkey Park — spectacular city views from the top <span class="cost">¥600</span></li>
+        <li>Tenryu-ji Temple & Zen garden <span class="cost">¥500–¥800</span></li>
+        <li>Togetsukyo Bridge walk · matcha soft serve <span class="cost">¥400</span></li>
+      </ul>
+      <div class="tip-box" style="margin-top:.75rem">
+        <strong>Honest tip:</strong> The bamboo grove photos you've seen were taken at 6–7 AM. By 9:30 AM it's shoulder-to-shoulder tourists. Wake up early — it's genuinely worth it.
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-label">Day 6</div>
+      <div class="day-title">Fushimi Inari & Gion</div>
+      <ul class="activity-list">
+        <li>Fushimi Inari Taisha — thousands of torii gates, open 24/7 <span class="cost">Free</span></li>
+        <li>Walk past the first summit — crowds vanish completely after 30 min</li>
+        <li>Nijo Castle <span class="cost">¥800</span></li>
+        <li>Gion district at dusk — the best atmosphere of the entire trip</li>
+        <li>Dinner near Nishiki Market <span class="cost">¥1,500–¥3,000</span></li>
+      </ul>
+    </div>
+
+    <div class="day-card">
+      <div class="day-label">Day 7</div>
+      <div class="day-title">Kinkaku-ji, Philosopher's Path & Higashiyama</div>
+      <ul class="activity-list">
+        <li>Kinkaku-ji Golden Pavilion — arrive before 9:00 AM <span class="cost">¥500</span></li>
+        <li>Philosopher's Path — canal-side walk lined with cherry trees <span class="cost">Free</span></li>
+        <li>Nanzen-ji Temple <span class="cost">Free–¥500</span></li>
+        <li>Higashiyama District — historic stone-paved lanes <span class="cost">Free</span></li>
+        <li>Tofu kaiseki set lunch <span class="cost">¥2,000–¥4,000</span></li>
+      </ul>
+    </div>
+
+    <h3>Kyoto price guide</h3>
+    <table class="price-table">
+      <tr><td>Temple / shrine admission</td><td>¥0–¥1,000</td></tr>
+      <tr><td>Matcha tea experience</td><td>¥800–¥2,000</td></tr>
+      <tr><td>Lunch set (teishoku)</td><td>¥900–¥1,500</td></tr>
+      <tr><td>City bus day pass</td><td>¥700</td></tr>
+      <tr><td>Business hotel (per night)</td><td>¥8,000–¥18,000</td></tr>
+      <tr><td>Ryokan with meals (per night)</td><td>¥15,000–¥40,000+</td></tr>
+    </table>
+  </div>
+
+  <!-- ==================== NARA ==================== -->
+  <div class="city-block city-nara">
+    <div class="section-tag t-nara">Nara · Day 8</div>
+    <h2>The Deer Park</h2>
+    <p>Nara is a day trip from Kyoto or Osaka. Small, ancient, and completely overrun with semi-wild deer that will bow at you, headbutt you, and steal your snacks without remorse. It is wonderful.</p>
+
+    <!-- CONFIRMED: Person feeding deer in Nara Park by Alessio Ferretti -->
+    <img class="city-img"
+      src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1200&auto=format&fit=crop&q=80"
+      alt="Deer roaming freely in Nara Park, Japan">
+
+    <div class="day-card">
+      <div class="day-label">Day 8 — Full Day</div>
+      <div class="day-title">Deer, Temples & Ancient Calm</div>
+      <ul class="activity-list">
+        <li>Train from Kyoto <span class="cost">¥720 · 40 min</span> or from Osaka <span class="cost">¥820 · 45 min</span></li>
+        <li>Nara Park — free-roaming deer everywhere <span class="cost">Free</span></li>
+        <li>Shika senbei (deer crackers) — prepare to be completely surrounded <span class="cost">¥200</span></li>
+        <li>Todai-ji Temple — world's largest wooden building, giant Buddha inside <span class="cost">¥800</span></li>
+        <li>Kasuga Taisha Shrine <span class="cost">Free–¥500</span></li>
+        <li>Wakakusa Mountain hike — panoramic views of the city <span class="cost">¥150</span></li>
+        <li>Return to Osaka for the evening</li>
+      </ul>
+      <div class="tip-box" style="margin-top:.75rem">
+        <strong>Honest deer tip:</strong> They are genuinely persistent. Keep all food inside your bag until you're ready. They will pull maps, tickets, and even wallets from your pockets thinking it might be food. Hilarious in hindsight.
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== OSAKA ==================== -->
+  <div class="city-block city-osaka">
+    <div class="section-tag t-osaka">Osaka · Days 9–10</div>
+    <h2>The Kitchen of Japan</h2>
+    <p>Osaka is where you eat. Repeatedly. The city's unofficial motto is <em>kuidaore</em> — eat until you drop — and locals take this very seriously. It's also Japan's most casually friendly city; strangers will actually start conversations with you here.</p>
+
+    <!-- CONFIRMED: Dotonbori canal at night with neon reflections by Juliana Barquero -->
+    <img class="city-img"
+      src="https://images.unsplash.com/photo-1590559899731-a382839e5549?w=1200&auto=format&fit=crop&q=80"
+      alt="Dotonbori canal at night, Osaka — neon lights reflected on the river">
+
+    <div class="day-card">
+      <div class="day-label">Day 9</div>
+      <div class="day-title">Dotonbori & the Street Food Rampage</div>
+      <ul class="activity-list">
+        <li>Takoyaki (octopus balls) at Dotonbori <span class="cost">¥500–¥700 for 6</span></li>
+        <li>Okonomiyaki (savory pancake) <span class="cost">¥800–¥1,200</span></li>
+        <li>Osaka Castle & surrounding park <span class="cost">¥600 castle / Park free</span></li>
+        <li>Shinsaibashi shopping street</li>
+        <li>Dotonbori at night — neon lights, the Glico Man, pure sensory overload <span class="cost">Free</span></li>
+      </ul>
+      <div class="tip-box" style="margin-top:.75rem">
+        <strong>Honest tip:</strong> The best takoyaki is not from the big flashy Dotonbori stalls. Look for smaller side-street stands in Namba with queues of locals. Same price, noticeably better quality.
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-label">Day 10</div>
+      <div class="day-title">Shinsekai & Departure</div>
+      <ul class="activity-list">
+        <li>Shinsekai neighbourhood — retro, strange, utterly brilliant</li>
+        <li>Tsutenkaku Tower <span class="cost">¥700</span></li>
+        <li>Kushikatsu (deep-fried skewers) <span class="cost">¥150–¥300 per skewer</span></li>
+        <li>Last shopping in Namba or Shinsaibashi</li>
+        <li>Kansai Airport via Haruka Express <span class="cost">¥2,830 · ~75 min</span></li>
+      </ul>
+    </div>
+
+    <h3>Osaka price guide</h3>
+    <table class="price-table">
+      <tr><td>Takoyaki (6 pieces)</td><td>¥500–¥700</td></tr>
+      <tr><td>Okonomiyaki at a restaurant</td><td>¥800–¥1,500</td></tr>
+      <tr><td>Ramen bowl</td><td>¥800–¥1,200</td></tr>
+      <tr><td>Osaka Castle entrance</td><td>¥600</td></tr>
+      <tr><td>Capsule hotel (per night)</td><td>¥3,000–¥5,500</td></tr>
+      <tr><td>Business hotel (per night)</td><td>¥7,000–¥14,000</td></tr>
+      <tr><td>Osaka Amazing Pass (1-day)</td><td>¥2,800</td></tr>
+    </table>
+  </div>
+
+  <!-- SUMMARY TABLE -->
+  <h2 style="margin-top:2.5rem">10-Day Spend at a Glance</h2>
+  <div class="summary-wrap">
+    <table class="summary-table">
+      <thead>
+        <tr><th>Day</th><th>Location</th><th>Highlights</th><th>Est. Daily Spend</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Tokyo</td><td>Arrive, Shinjuku wander</td><td>¥5,000–¥8,000</td></tr>
+        <tr><td>2</td><td>Tokyo</td><td>Senso-ji, Skytree, Akihabara</td><td>¥8,000–¥12,000</td></tr>
+        <tr><td>3</td><td>Tokyo</td><td>Meiji, Harajuku, Shibuya</td><td>¥6,000–¥10,000</td></tr>
+        <tr><td>4</td><td>Tokyo</td><td>Shinjuku Gyoen, teamLab</td><td>¥8,000–¥14,000</td></tr>
+        <tr><td>—</td><td>Transit</td><td>Tokyo → Kyoto Shinkansen</td><td>¥13,000–¥14,000</td></tr>
+        <tr><td>5</td><td>Kyoto</td><td>Arashiyama, Bamboo Grove</td><td>¥8,000–¥12,000</td></tr>
+        <tr><td>6</td><td>Kyoto</td><td>Fushimi Inari, Gion</td><td>¥6,000–¥10,000</td></tr>
+        <tr><td>7</td><td>Kyoto</td><td>Kinkaku-ji, Philosopher's Path</td><td>¥7,000–¥11,000</td></tr>
+        <tr><td>8</td><td>Nara</td><td>Deer Park, Todai-ji</td><td>¥6,000–¥10,000</td></tr>
+        <tr><td>9</td><td>Osaka</td><td>Dotonbori, Osaka Castle</td><td>¥7,000–¥12,000</td></tr>
+        <tr><td>10</td><td>Osaka</td><td>Shinsekai, departure</td><td>¥5,000–¥8,000</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- HONEST TIPS -->
+  <h2 style="margin-top:2.5rem">Honest Travel Tips</h2>
+  <div class="tips-grid">
+    <div class="tip-card">
+      <div class="tip-card-title">💴 Cash is still king</div>
+      <p>Many restaurants, temples, and local shops are cash-only. Carry ¥10,000–¥20,000 at all times. Use 7-Eleven, Lawson, or FamilyMart ATMs — they always accept international cards.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-card-title">🚉 Get a Suica card first</div>
+      <p>Load ¥5,000 at the airport machine. Use it on every train, bus, and convenience store in every city. Tap in, tap out — no tickets, no queues, no stress whatsoever.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-card-title">⏰ Arrive everywhere early</div>
+      <p>Fushimi Inari, the Bamboo Grove, Kinkaku-ji — arrive at opening (8–9 AM). The difference between 8:30 and 10:30 is thousands of tourists. Early mornings are when Japan is at its best.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-card-title">🍱 Lunch sets are the secret</div>
+      <p>Restaurants charging ¥2,500 for dinner often serve the exact same food as a lunch set for ¥1,000–¥1,500. Always eat your main meal at midday in Japan.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-card-title">🗑️ There are no public bins</div>
+      <p>Almost none, anywhere. You carry your trash until you find a convenience store. Don't be the tourist leaving rubbish on temple grounds — it's genuinely frowned upon.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-card-title">🗺️ Trust Google Maps completely</div>
+      <p>Japanese transit on Google Maps is flawless — exact platform numbers, transfer times, live delays. Download offline maps for Tokyo, Kyoto, and Osaka before you land.</p>
+    </div>
+  </div>
+
+  <!-- RESOURCES -->
+  <h2 style="margin-top:2.5rem">Resources</h2>
+  <div class="resources">
+    <a class="res-link" href="https://www.westjr.co.jp/global/en/" target="_blank" rel="noopener">
+      <div class="res-icon">🚅</div>
+      <div>
+        <div class="res-name">JR West Ticket Booking</div>
+        <div class="res-desc">westjr.co.jp · Book Shinkansen tickets online without needing a JR Pass</div>
+      </div>
+    </a>
+    <a class="res-link" href="https://maps.google.com" target="_blank" rel="noopener">
+      <div class="res-icon">📍</div>
+      <div>
+        <div class="res-name">Google Maps</div>
+        <div class="res-desc">maps.google.com · Flawless transit directions across all of Japan</div>
+      </div>
+    </a>
+  </div>
+
+</div><!-- end .wrap -->
+
+<div class="footer">
+  All prices in Japanese Yen (¥) &nbsp;·&nbsp; Based on 2025–2026 traveler reports<br>
+  No sponsorships. No affiliate links. Just honest travel. 🍜
+</div>
+
+</body>
+</html>
